@@ -36,18 +36,13 @@ public class Zombie : MonoBehaviour
             Destroy(other.gameObject);
             anim.SetTrigger("Death");
             Destroy(this.gameObject, 2.5f);
+            ++GameStateManager.killScore;
         }
 
         else if (other.CompareTag("Spikes"))
         {
+            --GameStateManager.livesRemain;
             Destroy(gameObject);
         }
     }
-
-    public void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("OnCollisionEnter");
-       
-    }
-
 }
