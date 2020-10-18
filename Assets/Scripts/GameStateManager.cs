@@ -14,10 +14,15 @@ public class GameStateManager : MonoBehaviour
     public Sprite haveLife;
     public Sprite lostLife;
 
+    public MenusManager menu;
+
     // Update is called once per frame
     void Update()
     {
         scoreObject.text = "KILLS: " + killScore;
+
+        if (livesRemain == 0)
+            menu.GetComponent<MenusManager>().gameOver();
 
         for (int i = 0 ; i < lives ; i++)
         {
